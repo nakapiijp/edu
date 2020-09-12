@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script src="js/lib/lodash.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">//<![CDATA[
+//
+// すべてのObjectのインスタンスにはwindow.Object.prototypeの参照__proto__メンバを持つ
+//
+// foo.__proto__
+//
+// ObjectやFunction等、prototypeを持つオブジェクトのインスタンスを生成するとそのprototypeが継承される
+//
+//
+var obj1 = {name: "taro"};
+
+var obj2 = new Object();
+obj2.name = "taro";
+
+console.log("obj1===obj2");
+console.log(obj1===obj2);//インスタンスが違うのでfalse
+console.log("_.isEqual(obj1, obj2)");
+console.log(_.isEqual(obj1, obj2));//true
+
+console.log("obj1.prototype;");
+console.log(obj1.prototype);//undefined
+
+console.log("obj1.__proto__ === obj2.__proto__ && obj2.__proto__ === Object.prototype");
+console.log(obj1.__proto__ === obj2.__proto__ && obj2.__proto__ === Object.prototype);//true
+console.log("Object.prototype === window.Object.prototype");
+console.log(Object.prototype === window.Object.prototype);//true
+console.log("Object.__proto__ === window.Object.prototype");
+console.log(Object.__proto__ === window.Object.prototype);//false
+console.log("(new Object()).__proto__ === window.Object.prototype");
+console.log((new Object()).__proto__ === window.Object.prototype);//true
+console.log("Object.__proto__");
+console.log(Object.__proto__);// ƒ () { [native code] }
+console.log("Object.prototype");
+console.log(Object.prototype);// {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+console.log("new Object()).__proto__");
+console.log((new Object()).__proto__);//{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+//console.log("Objecte");
+//console.log(Objecte);
+//console.log("new Object()");
+//console.log(new Object());
+
+//]]></script>
+
+</body>
+</html>

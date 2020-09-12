@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script src="js/lib/lodash.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">//<![CDATA[
+//
+// すべてのObjectのインスタンスにはwindow.Object.prototypeの参照__proto__メンバを持つ
+//
+// プロトタイプチェーン
+//   1.指定したオブジェクトにプロパティが存在を調べる
+//   2.なかった場合__proto__が参照する先で存在を調べる
+//   3.それでもなかった場合__proto__が参照する・・・（ループ）
+//   4.最終的にnullになるまで行う。nullならundefinedを返す
+
+var obj = {name: "taro"};
+
+console.log("obj.name");
+console.log(obj.name); // taro
+console.log("obj.name");
+console.log("obj.__proto__.toString");
+console.log(
+  obj.__proto__.toString
+); // function　toString() { [native code] }
+
+//プロトタイプチェーン
+console.log("obj.toString");
+console.log(
+  obj.toString//obj.__proto__.toStringをCallすることになる
+); // function　toString() { [native code] }
+
+//未定義
+console.log("obj.hogehoge");
+console.log(
+  obj.hogehoge
+); // undefined
+
+//__proto__の中にも__proto__が定義されているがnull
+console.log("obj.__proto__.__proto__ === null");
+console.log(obj.__proto__.__proto__ === null); // true
+console.log("Object.prototype.__proto__");
+console.log(Object.prototype.__proto__); // null
+
+  //]]></script>
+
+</body>
+</html>

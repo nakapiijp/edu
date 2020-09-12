@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script src="js/lib/lodash.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">//<![CDATA[
+
+var obj = {};
+console.log("obj");
+console.log(obj);
+//{}
+//  __proto__: Object
+
+var obj = {name:"koji"};
+console.log("obj");
+console.log(obj);
+//{name: "koji"}
+//  name: "koji"
+//  __proto__: Object
+
+var obj = {
+   name:"koji",
+   hello: function() {
+        alert(name);
+   }
+};
+console.log("obj");
+console.log(obj);
+
+
+var helloFunc = function(){console.log("hello");};
+console.log("helloFunc");
+console.log(helloFunc);
+
+var helloFunc = new Function('console.log("hello");');
+console.log("helloFunc");
+console.log(helloFunc);
+//]]></script>
+
+</body>
+</html>

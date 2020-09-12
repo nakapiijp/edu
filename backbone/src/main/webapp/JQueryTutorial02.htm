@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="js/lib/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript">
+            //jQuery( セレクタ ,コンテキスト )
+			$(function () {
+				$("button").click(function(){
+					//li要素かつID:test1をDocumentルートから検索
+					//$( "#test1" ).find("li").css("background-color","#f99");
+				    //↑と等価
+					$("li","#test1").css("background-color","#f99");
+				})
+			});
+
+		</script>
+	</head>
+
+	<body>
+		<ul id="test1">
+			<li>list item 1</li>
+			<li>list item 2</li>
+			<li>list item 3</li>
+			<li>list item 4</li>
+			<li>list item 5</li>
+		</ul>
+		<ul id="test2">
+			<li>list item A</li>
+			<li>list item B</li>
+			<li>list item C</li>
+			<li>list item D</li>
+			<li>list item E</li>
+		</ul>
+		<button>CLICK</button>
+	</body>
+</html>

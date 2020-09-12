@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script src="js/lib/lodash.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">//<![CDATA[
+//
+// すべてのObjectのインスタンスにはwindow.Object.prototypeの参照__proto__メンバを持つ
+//
+
+//リテラルでFunctionオブジェクトを作る
+var func1 = function(){console.log("hello");};
+
+//new演算子でFunctionオブジェクトを作る
+var func2 = new Function('console.log("hello");');
+
+console.log("(new Function()).__proto__ === Function.prototype");
+console.log((new Function()).__proto__ === Function.prototype); // true
+
+console.log("Function.__proto__ === Function.prototype");
+console.log(Function.__proto__ === Function.prototype); // false
+
+console.log("func1.prototype === func1.__proto__;");
+console.log(func1.prototype === func1.__proto__);// false
+
+console.log("func1.__proto__ === Object.prototype;");
+console.log(func1.__proto__ === Object.prototype);// false
+
+console.log("func1.__proto__ === Function.prototype;");
+console.log(func1.__proto__ === Function.prototype);// true
+
+console.log("func2.__proto__ === Function.prototype;");
+console.log(func2.__proto__ === Function.prototype);// true
+
+console.log("(Object.prototype === Function.prototype.__proto__;");
+console.log(Object.prototype === Function.prototype.__proto__);// true
+
+//console.log("func1.__proto__ === Object.prototype && func2.__proto__ === window.Object.prototype;");
+//console.log(func1.__proto__ === Object.prototype && func2.__proto__ === window.Object.prototype);
+
+//console.log("func1.prototype.__proto__ === Object.prototype && func2.prototype.__proto__ === window.Object.prototype;");
+//console.log(func1.prototype.__proto__ === Object.prototype && func2.prototype.__proto__ === window.Object.prototype);
+
+  //]]></script>
+
+</body>
+</html>

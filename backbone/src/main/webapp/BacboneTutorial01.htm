@@ -1,0 +1,14 @@
+<html>
+<head>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone-min.js'></script>
+<script type="text/template" id="user-template">
+<%- name %>、<%- age %>歳（エリア：<%- area %>）
+</script>
+</head>
+<body>
+<!-- id=user-templateで示すテンプレートをロード後、本Jsをロードする（先に呼び出すとテンプレート未定義でエラーになる） -->
+<script src='js/backboneTutorial01.js'></script>
+</body>
+</html>

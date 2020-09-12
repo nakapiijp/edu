@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="js/lib/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript">
+		   //jQuery( セレクタ )
+			$(function () {
+				//div要素をDocumentルートから検索し、存在すればJQueryオブジェクトに変換
+				var jo = $("div");
+				$("button").click(function(){
+					jo.css("background-color","#cfc");
+				})
+			});
+
+		</script>
+
+		<style type="text/css">
+		<!--
+			div,span{
+				display:block;
+				color:fff;
+				width:100px;
+				height:100px;
+				background-color:#09C;
+			}
+		-->
+		</style>
+
+	</head>
+
+	<body>
+		<div>DIV</div>
+		<br>
+		<span>SPAN</span>
+		<br>
+		<div>DIV</div>
+		<br>
+		<button>CLICK</button>
+	</body>
+</html>

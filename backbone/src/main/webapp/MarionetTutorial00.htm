@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+      <script type="text/javascript" src="js/lib/jquery.js"></script>
+      <script type="text/javascript" src="js/lib/underscore-min.js"></script>
+      <script type="text/javascript" src="js/lib/backbone-min.js"></script>
+      <script type="text/javascript" src="js/lib/backbone.radio.min.js"></script>
+      <script type="text/javascript" src="js/lib/backbone.marionette.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">//<![CDATA[
+
+const { View } = Marionette; // import { View } from 'backbone.marionette';
+
+const MyView = View.extend({
+  //el: '<div>' is equivalent.
+  template: _.template('Marionette says hi!')
+});
+
+const myView = new MyView();
+myView.render();
+$('body').append(myView.$el);
+console.log("myView.el:");
+console.log(myView.el);
+console.log("myView.$el:");
+console.log(myView.$el);
+  //]]></script>
+
+</body>
+</html>

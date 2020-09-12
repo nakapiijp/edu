@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script src="js/lib/lodash.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">//<![CDATA[
+
+//
+//let を使用することで、それが使用されたブロック、文または式にスコープを限定した変数を宣言することができます。
+//
+
+let Letter = Object;
+
+let a= new Letter();
+
+let b= new Letter();
+
+let z= new Letter();
+
+// output in console
+console.log("a.__proto__ === Letter.prototype");
+console.log(a.__proto__ === Letter.prototype);               // true
+
+console.log("b.__proto__ === Letter.prototype");
+console.log(b.__proto__ === Letter.prototype);               // true
+
+console.log("z.__proto__ === Letter.prototype");
+console.log(z.__proto__ === Letter.prototype);               // true
+
+console.log("Letter.__proto__ ===  Function.prototype");
+console.log(Letter.__proto__ === Function.prototype);        // true
+
+console.log("Function.prototype.__proto__ === Object.prototype");
+console.log(Function.prototype.__proto__ === Object.prototype);        // true
+
+console.log("Letter.prototype.__proto__ === Object.prototype");
+console.log(Letter.prototype.__proto__ === Object.prototype);          // true
+
+//]]></script>
+
+</body>
+</html>
