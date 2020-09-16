@@ -1,5 +1,5 @@
 package test;
 
 public class Say {
-//GITLabで編集２
+////編集 Gitlab
 }
