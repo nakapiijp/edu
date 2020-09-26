@@ -1,4 +1,4 @@
-package test;
+package work;
 
 public class Hello {
 ///////////////////edit-issue01
