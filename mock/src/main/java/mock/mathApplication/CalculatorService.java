@@ -8,4 +8,6 @@ public interface CalculatorService {
 	public double multiply(double input1, double input2);
 
 	public double divide(double input1, double input2);
+	
+	public void hellowException(double input1, double input2) throws Exception ;
 }

@@ -1,11 +1,16 @@
 package mock;
 import org.junit.Test;
+
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import static org.powermock.api.support.membermodification.MemberMatcher.method;
+//Mock、Spy、Captor、InjectMocksアノテーションが付いたオブジェクトの初期化を行う方法です。
+//1.@RunWith (推奨)
+//2.MockitoRuleを使用する
+//3.MockitoAnnotations.initMocksを使用する
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({Sample.class})
 public class SampleForPowerMockitoTest {

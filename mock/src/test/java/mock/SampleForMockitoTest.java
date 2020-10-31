@@ -12,11 +12,15 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+//Mock、Spy、Captor、InjectMocksアノテーションが付いたオブジェクトの初期化を行う方法です。
+//1.@RunWith (推奨)
+//2.MockitoRuleを使用する
+//3.MockitoAnnotations.initMocksを使用する
 public class SampleForMockitoTest {
     @Mock
-    private Sample mock;
+    private Sample mock;///クラスの一つメソッドをモックした場合、他のメソッドはデフォルトモックされる
     @Spy
-    private Sample spy;
+    private Sample spy;//クラスの一部のメソッドをモックしたい場合に使用
     @Before
     public void init() {
         // @Mockアノテーションのモックオブジェクトを初期化

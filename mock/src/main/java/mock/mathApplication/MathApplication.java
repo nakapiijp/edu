@@ -22,4 +22,8 @@ public class MathApplication {
 	public double divide(double input1, double input2) {
 		return calcService.divide(input1, input2);
 	}
+	
+	public void hellowException(double input1, double input2)  throws Exception {
+		calcService.hellowException(input1, input2);
+	}
 }

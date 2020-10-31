@@ -14,7 +14,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 //3.MockitoAnnotations.initMocksを使用する
 @RunWith(PowerMockRunner.class)
 // @RunWith attaches a runner with the test class to initialize the test data
-public class MathApplicationTester {
+public class MathApplicationTester2 {
 	
    //@InjectMocks annotation is used to create and inject the mock object
    //MathApplicationのCalculatorServiceメンバーにMockを注入します。
@@ -31,6 +31,9 @@ public class MathApplicationTester {
 	   Mockito.when(calcService.add(10.0,20.0)).thenReturn(30.00);
 		
       //test the add functionality
-      Assert.assertEquals(mathApplication.add(10.0, 20.0),30.0,0);    
+	  // @param expected value
+	  // @param actual the value to check against expected
+	  // @param delta the maximum delta between expected and actual for which both numbers are still
+      Assert.assertEquals( 30.0, mathApplication.add(10.0, 20.0), 0);
    }
 }

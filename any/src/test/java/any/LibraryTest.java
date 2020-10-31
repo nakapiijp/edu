@@ -12,11 +12,31 @@ import org.junit.Test;
 
 public class LibraryTest {
     @Test public void testSomeLibraryMethod() {
+        Library classUnderTest = new Library();
+        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
+    }
+    @Test public void jsonTest1() {
     	HashMap<String,Object> map = new HashMap<String,Object>();
     	map.put("JSON","{\"KEY\":\"VAL\",\"KEY2\":\"VAL2\"}");
     	//map.put("JSON","{KEY:VAL,KEY2:VAL2}");
     	String str = (String)map.get("JSON");
-        Library classUnderTest = new Library();
-        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
+    }
+    @Test public void jsonTest2() {
+    	HashMap<String,Object> rootMap = new HashMap<String,Object>();
+    	HashMap<String,Object> map = new HashMap<String,Object>();
+    	map.put("KEY1", "VAL2");
+    	map.put("KEY2", "VAL3");
+    	rootMap.put("JSON", map);
+    	//java.lang.ClassCastException: class java.util.HashMap cannot be cast to class java.lang.String (java.util.HashMap and java.lang.String are in module java.base of loader 'bootstrap')
+    	String str = (String)rootMap.get("JSON");
+    }
+    @Test public void abstractInstanceTest() {
+    	hoo(new Abs() {});
+    }
+    private static void hoo(Abs abs) {
+    	abs.method();
+    }
+    private abstract class Abs {
+    	public void method() {System.out.println("method");};
     }
 }
