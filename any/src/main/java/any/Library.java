@@ -3,8 +3,75 @@
  */
 package any;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import lombok.AllArgsConstructor;
+
 public class Library {
-    public boolean someLibraryMethod() {
-        return true;
+	public static void main(String[] args) throws IOException {
+		//User user = Library.User("name", "val");
+		User user = new User("name","val");
+		User user5 = new User("name","val");
+		//中身は同じ
+		System.out.println(user.hashCode());
+		System.out.println(user.hashCode());
+		//インスタンスは違う
+		System.out.println(user==user5);
+		
+		Library.User u1 = new Library.User("name","val");
+		Library.User u2 = new Library.User("name","val");
+		//中身は同じ
+		System.out.println(u1.hashCode());
+		System.out.println(u2.hashCode());
+		//インスタンスは違う
+		System.out.println(u1==u2);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(user);// Obj --> Json文字列
+		System.out.println(json);
+		User user2 = mapper.readValue(json, User.class);// Json文字列 --> Obj
+		System.out.println(user2);
+		
+		Map<String,Object> map = mapper.readValue(json, new TypeReference<Map<String,Object>>(){});
+		System.out.println(map);
+		
+		List<Map<String,Object>> list = new LinkedList<>();
+		list.add(map);
+		list.add(map);
+		json = mapper.writeValueAsString(list);// Obj --> Json文字列
+		System.out.println(json);	
+		//json = mapper.readValue(json, new TypeReference<List<Map<String,Object>>>(){});// Obj --> Json文字列
     }
+	
+	@Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    //static にしないと　実行時エラー
+    private static class Chat{
+    	private List<User> users;
+    	private String msg;
+    }
+	@Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    //static にしないと　実行時エラー
+    private static class User{
+    	private String name;
+    	private String sex;
+    }
+	
+	public String someLibraryMethod()
+	{
+		return null;
+	}
 }

@@ -3,17 +3,17 @@
  */
 package any;
 
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import org.junit.Test;
 
 public class LibraryTest {
     @Test public void testSomeLibraryMethod() {
         Library classUnderTest = new Library();
-        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
+        assertThat("someLibraryMethod should return 'true'", is(classUnderTest.someLibraryMethod()));
     }
     @Test public void jsonTest1() {
     	HashMap<String,Object> map = new HashMap<String,Object>();
